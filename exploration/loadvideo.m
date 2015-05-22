@@ -1,5 +1,5 @@
 function [img_sequence, video_path] = loadvideo(folder_name)
-    data_root = '/home/hanjun/data/dataset/CDnet';
+    data_root = '/Users/kangaroo/Research/changepoint/';
     folder = fullfile(data_root, folder_name, '*.jpg');
     image_names = dir(folder);
     image_names = {image_names.name};

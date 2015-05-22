@@ -5,15 +5,15 @@ close all
 format long
 
 %% 
-M=10; %M is the maximum block size 
-T=1000; % T is the time
+M=5; %M is the maximum block size 
+T=100; % T is the time
 
-b=4:0.01:6;
+b=3.0:0.1:4.5;
 L=length(b);
 output=zeros(L,2);
 j=1;
 
-for b=4:0.01:6
+for b=3.0:0.1:4.5
     
 Pr=0;
 

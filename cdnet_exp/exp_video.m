@@ -32,8 +32,7 @@ end
 textprogressbar('done');
 
 %%
-
-kernel_options.KernelType = 'Gaussian';
+options.KernelType = 'Gaussian';
 
 subseq_idx = 586;
 
@@ -41,9 +40,7 @@ subseq = sub_sequences{subseq_idx};
 subseq = reshape(subseq, size(subseq, 1) * size(subseq, 2) * size(subseq, 3), size(subseq, 4));
 ref_data = subseq(:, 1 : ref_len)';
 dist_mat = EuDist2(ref_data);
-kernel_options.t = median(dist_mat(dist_mat ~= 0));
-kernel_options.t = 0.5;
-mmd_stats = get_mmd_stats(subseq, ref_len, B, kernel_options);
-
-%%
-implay(frame_sequence);
+options.t = median(dist_mat(dist_mat ~= 0));
+options.prob = 0.05;
+[normed_mmd_stats, labels] = get_segment_labels(subseq, ref_len, B, options);
+fprintf('done\n');
