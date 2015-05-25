@@ -17,7 +17,6 @@ function [normed_mmd_stats, threshold] = calc_normed_mmd_seq(X, ref_len, B, opti
     avg_kxx = avg_kxx / num_blocks;
     
     idx = 0;
-    T = sequence_length - B + 1 - ref_len;
     threshold = get_threshold(B, 100, options.prob)
     
     for pos = ref_len + 1 : sequence_length - B + 1
